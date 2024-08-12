@@ -43,10 +43,10 @@ export default function Home() {
           Convert any text into flashcards for effective learning.
         </Typography>
         <Box sx={{ display: 'flex', gap: 2, mt: 4 }}>
-          <CTAButton variant="contained" color="primary" href='/sign-up'>
+          <CTAButton variant="contained" color="primary" href='/signup'>
             Sign Up
           </CTAButton>
-          <CTAButton variant="outlined" color="primary" href='sign-in'>
+          <CTAButton variant="outlined" color="primary" href='/signin'>
             Log In
           </CTAButton>
         </Box>
