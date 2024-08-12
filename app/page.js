@@ -1,95 +1,110 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import React from 'react';
+import { Container, Typography, Button, Box, Grid } from '@mui/material';
+import { styled } from '@mui/material/styles'; 
+
+const HeroContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '80vh',
+  backgroundColor: '#f5f5f5',
+  textAlign: 'center',
+  padding: theme.spacing(4),
+}));
+
+const CTAButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  padding: theme.spacing(1, 4),
+  fontSize: '1.2rem',
+}));
+
+const FeatureBox = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(4),
+  textAlign: 'center',
+}));
+
+const FeatureItem = styled(Box)(({ theme }) => ({
+  marginBottom: theme.spacing(4),
+  padding: theme.spacing(2),
+}));
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Container maxWidth="lg">
+      {/* Hero Section */}
+      <HeroContainer>
+        <Typography variant="h2" component="h1" gutterBottom>
+          Flashcards Made Easy
+        </Typography>
+        <Typography variant="h6" component="p" color="textSecondary" gutterBottom>
+          Convert any text into flashcards for effective learning.
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 2, mt: 4 }}>
+          <CTAButton variant="contained" color="primary" href='/sign-up'>
+            Sign Up
+          </CTAButton>
+          <CTAButton variant="outlined" color="primary" href='sign-in'>
+            Log In
+          </CTAButton>
+        </Box>
+      </HeroContainer>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* Features Section */}
+      <FeatureBox>
+        <Typography variant="h4" component="h2" gutterBottom>
+          Features
+        </Typography>
+        <Grid container spacing={4}>
+          <Grid item xs={12} sm={4}>
+            <FeatureItem>
+              <Typography variant="h6" component="h3" gutterBottom>
+                Easy Conversion
+              </Typography>
+              <Typography color="textSecondary">
+                Paste your text, and we'll do the rest. Automatically generate flashcards in seconds.
+              </Typography>
+            </FeatureItem>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <FeatureItem>
+              <Typography variant="h6" component="h3" gutterBottom>
+                Customizable
+              </Typography>
+              <Typography color="textSecondary">
+                Adjust the content and format of your flashcards to suit your study style.
+              </Typography>
+            </FeatureItem>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <FeatureItem>
+              <Typography variant="h6" component="h3" gutterBottom>
+                Accessible Anywhere
+              </Typography>
+              <Typography color="textSecondary">
+                Access your flashcards on any device, anytime, anywhere.
+              </Typography>
+            </FeatureItem>
+          </Grid>
+        </Grid>
+      </FeatureBox>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      {/* Pricing Section */}
+      <Box sx={{ textAlign: 'center', mt: 8 }}>
+        <Typography variant="h4" component="h2" gutterBottom>
+          Simple Pricing
+        </Typography>
+        <Typography variant="h6" color="textSecondary">
+          Choose a plan that fits your needs.
+        </Typography>
+        <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', gap: 2 }}>
+          <Button variant="contained" color="secondary">
+            View Pricing
+          </Button>
+        </Box>
+      </Box>
+    </Container>
   );
 }
