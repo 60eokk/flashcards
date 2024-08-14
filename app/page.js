@@ -15,11 +15,6 @@ const HeroContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
 }));
 
-const CTAButton = styled(Button)(({ theme }) => ({
-  marginTop: theme.spacing(2),
-  padding: theme.spacing(1, 4),
-  fontSize: '1.2rem',
-}));
 
 const FeatureBox = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
@@ -43,12 +38,15 @@ export default function Home() {
           Convert any text into flashcards for effective learning.
         </Typography>
         <Box sx={{ display: 'flex', gap: 2, mt: 4 }}>
-          <CTAButton variant="contained" color="primary" href='/signup'>
+          <Button variant="contained" color="primary" href='/signup'>
             Sign Up
-          </CTAButton>
-          <CTAButton variant="outlined" color="primary" href='/signin'>
+          </Button>
+          <Button variant="outlined" color="primary" href='/signin'>
             Log In
-          </CTAButton>
+          </Button>
+          <Button variant='conatined' color='secondary' href='/generate'>
+            Generate 
+          </Button>
         </Box>
       </HeroContainer>
 
